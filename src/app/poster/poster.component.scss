@@ -1,0 +1,13 @@
+.poster {
+    border: 1px solid red;
+    background: var(--red);
+    @media screen and (max-width: var(--phone)) {
+        background: red;
+    } 
+    @media screen and (min-width:  var(--tablet)) {
+        background: orange;
+    } 
+    @media screen and (max-width:  var(--desktop)) {
+        background: yellow;
+    }  
+}
