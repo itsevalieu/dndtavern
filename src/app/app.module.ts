@@ -15,6 +15,8 @@ import { PosterComponent } from './modules/components/poster/poster.component';
 import { DialogueComponent } from './modules/components/dialogue/dialogue.component';
 import { LoggerService } from './core/services/logger.service';
 import { ConsoleLoggerService } from './core/services/console-logger.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { ConsoleLoggerService } from './core/services/console-logger.service';
     HttpClientModule,
     CoreModule,
     SharedModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
   ],
   providers: [{ provide: LoggerService, useClass: ConsoleLoggerService }],
   bootstrap: [AppComponent],

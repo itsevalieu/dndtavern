@@ -1,6 +1,6 @@
-<div *ngFor='let poster of posters' class='poster'>
-    <h2>{{poster.title}}</h2>
-    <p>{{poster.subtitle}}</p>
-    <p>{{poster.short_description}}</p>
-    <p>{{poster.difficulty_level}}</p>
+<div *ngFor="let poster of posters" class="poster" (click)="openPoster(poster)">
+  <h2>{{ poster.title }}</h2>
+  <p>DC: {{ poster.difficulty_level }}</p>
+  <p>{{ poster.subtitle }}</p>
+  <p>{{ poster.short_description }}</p>
 </div>

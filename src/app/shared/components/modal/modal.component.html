@@ -1,1 +1,12 @@
-<p>modal works!</p>
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content>
+  <p>By: {{ data.author }}</p>
+  <p>DC: {{ data.difficulty_level }}</p>
+  <p>{{ data.subtitle }}</p>
+  <p>{{ data.long_description }}</p>
+
+  <p>Type: {{ data.type_id }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>X</button>
+</div>
