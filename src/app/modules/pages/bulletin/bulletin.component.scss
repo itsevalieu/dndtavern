@@ -1,3 +1,21 @@
-main {
-  border: 1px solid brown;
+.bulletin {
+  background: burlywood;
+
+  @media (min-width: 640px) {
+    // background: red;
+  }
+
+  @media (min-width: 768px) {
+    // background: orange;
+  }
+
+  @media (min-width: 1024px) {
+    // background: yellow;
+    margin: 5%;
+  }
+
+  @media (min-width: 1280px) {
+    // background: green;
+    margin: 5 10%;
+  }
 }
