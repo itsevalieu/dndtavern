@@ -1,6 +1,18 @@
-# Dndtavern
+# D&D Tavern
+
+Notice board of oneshot ideas for D&D game masters.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+
+## Feature Roadmap
+
+1. Bulletin - List oneshots in poster format, clicking a poster pops up a modal with more information about the oneshot idea.
+
+- Initial render should show Featured Posters
+- Allow users to filter posters by type or difficulty
+
+2. Bar - Users interact with a barkeep to add more posters (Form CRUD)
+3. Login/Account signup via barkeep, user authentication
 
 ## Development server
 
