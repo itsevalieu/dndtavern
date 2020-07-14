@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BulletinComponent } from './modules/pages/bulletin/bulletin.component';
-import { BarkeepComponent } from './modules/pages/barkeep/barkeep.component';
+import { BarComponent } from './modules/pages/bar/bar.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: BulletinComponent },
-  { path: 'bar', component: BarkeepComponent },
+  { path: 'bar', component: BarComponent },
 ];
 
 @NgModule({
