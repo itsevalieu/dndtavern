@@ -8,5 +8,8 @@
   <p>Type: {{ data.type_id }}</p>
 </div>
 <div mat-dialog-actions>
-  <button mat-button mat-dialog-close>X</button>
+  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button [mat-dialog-close]="data.id">
+    Accept
+  </button>
 </div>

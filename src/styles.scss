@@ -65,3 +65,15 @@ h3 {
     font-size: 0.6rem;
   }
 }
+
+//MAT DIALOG AKA MODAL
+.cdk-global-overlay-wrapper {
+  pointer-events: auto !important; // be able to scroll event
+  overflow-y: scroll !important;
+  // align-items: start !important; // not center the dialog
+  z-index: auto !important; // remove z-index
+}
+// .cdk-overlay-pane {
+//   // margin: 1rem;
+//   z-index: 1002; // over the overlay
+// }
