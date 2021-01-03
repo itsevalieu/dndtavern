@@ -16,7 +16,8 @@
       "@app/*": ["app/*"],
       "@core/*": ["app/core/*"],
       "@shared/*": ["app/shared/*"],
-      "@modules/*": ["app/modules/*"]
+      "@modules/*": ["app/modules/*"],
+      "@environments/*": ["environments/*"],
     }
   },
   "angularCompilerOptions": {

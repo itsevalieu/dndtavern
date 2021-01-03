@@ -5,12 +5,13 @@ import {
   QueryList,
   ElementRef,
 } from '@angular/core';
-import { PosterService } from '@core/services/poster.service';
+import { ItemService } from '@core/services/item.service';
 import { Poster } from '@core/models/poster';
 import { LoggerService } from '@app/core/services/logger.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ModalComponent } from '@shared/components/modal/modal.component';
 import { getRandomInt } from '@shared/utils/helpers';
+
 
 @Component({
   selector: 'app-poster',
@@ -18,21 +19,27 @@ import { getRandomInt } from '@shared/utils/helpers';
   styleUrls: ['./poster.component.scss'],
 })
 export class PosterComponent implements OnInit {
-  public posters: Poster[] = [];
+  public loadedPosters: Poster[] = [];
+  isFetching: boolean = false;
+
   @ViewChildren('posterElement') posterElement: QueryList<ElementRef>;
 
   constructor(
-    private posterService: PosterService,
+    private itemService: ItemService,
     private logger: LoggerService,
     public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
-    this.getPosters();
+    this.isFetching = true;
+    this.itemService.fetchItems().subscribe((posters) => {
+      this.isFetching = false;
+      this.loadedPosters = posters;
+    });
   }
   ngAfterViewInit() {
     console.log('ngAfterViewInit');
-    this.posterElement.first.nativeElement.draggable = true;
+    // this.posterElement.first.nativeElement.drasggable = true;
 
     this.posterElement.forEach((poster) => {
       console.log('PosterElement', poster);
@@ -44,14 +51,24 @@ export class PosterComponent implements OnInit {
       poster.nativeElement.style.transform = `rotate(${getRandomInt(5)}deg)`;
     });
   }
-  getPosters(): void {
+  onFetchItems(): void {
     this.logger.info('PosterComponent: getting posters.');
-    this.posterService
-      .getPosters()
-      .subscribe((posters) => (this.posters = posters));
+    this.isFetching = true;
+    this.itemService.fetchItems().subscribe((posters) => {
+      this.isFetching = false;
+      this.loadedPosters = posters;
+    });
+  }
+  onCreateItems(itemData: Poster): void {
+    this.logger.info("PosterComponent: creating new item.");
+    this.itemService.createItems(itemData);
+  }
+  onFilterItems(filterBy: string) {
+    this.logger.info("PosterComponent: filtering items.");
+    return 
   }
   openPoster(poster: Poster): void {
-    this.logger.info('PosterComponent: open poster', poster.id);
+    this.logger.info('PosterComponent: open poster', poster._id);
     const dialogRef = this.dialog.open(ModalComponent, {
       maxHeight: '100vh',
       maxWidth: '100%',

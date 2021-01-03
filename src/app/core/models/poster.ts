@@ -1,12 +1,18 @@
 export interface Poster {
-  id: number;
-  title: string;
-  subtitle: string;
-  short_description: string;
-  long_description: string;
-  difficulty_level: number;
-  type_id: number;
-  author: string;
-  images: any[];
-  link: string;
+  _id?: number;
+  title?: string;
+  subtitle?: string;
+  short_description?: string;
+  long_description?: string;
+  rating?: number;
+  type?: string;
+  saved?: boolean,
+  favorited?: boolean,
+  tags?: any,
+  category?: any,
+  author_id?: string;
+  images?: any[];
+  link?: string;
+  created_date?: Date,
+  updated_date?: Date,
 }
