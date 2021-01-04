@@ -17,6 +17,8 @@ import { ConsoleLoggerService } from './core/services/console-logger.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BarComponent } from './modules/pages/bar/bar.component';
+import { CreateItemComponent } from './modules/components/forms/create-item/create-item.component';
+import { LoginComponent } from './modules/components/forms/login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { BarComponent } from './modules/pages/bar/bar.component';
     HeaderComponent,
     FooterComponent,
     NavComponent,
+    CreateItemComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   isDebugMode: true,
+  api_url: "http://localhost:8000",
 };
 
 /*
