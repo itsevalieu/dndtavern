@@ -1,5 +1,5 @@
 <p>login works!</p>
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="form-group">
         <label for="email">Email Address</label>
         <input type="text" id="email" class="form-control" ngModal name="email">    
