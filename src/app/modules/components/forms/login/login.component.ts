@@ -10,7 +10,7 @@ export class LoginComponent implements OnInit {
 
   constructor() { }
   onSubmit(form: NgForm) {
-    console.log("Submit login form", form);
+    console.log("Submit login form", form.value);
 
   }
   ngOnInit(): void {
