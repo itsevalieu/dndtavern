@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-create-item',
@@ -7,12 +7,17 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./create-item.component.scss']
 })
 export class CreateItemComponent implements OnInit {
+  createItemForm: FormGroup;
 
   constructor() { }
-  onSubmit(form: NgForm) {
-    console.log(form);
+  onSubmit() {
+    console.log(this.createItemForm);
   }
   ngOnInit(): void {
+    this.createItemForm = new FormGroup({
+      'title': new FormControl(null),
+      'subtitle': new FormControl(null),
+    });
   }
 
 }

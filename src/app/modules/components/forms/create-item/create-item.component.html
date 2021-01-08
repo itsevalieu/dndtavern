@@ -1,12 +1,12 @@
 <p>create-item works!</p>
-<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+<form (ngSubmit)="onSubmit()" [formGroup]="createItemForm"]>
     <div class="form-group">
         <label for="title">Title</label>
         <input type="text" id="title" class="form-control" ngModel name="title">    
     </div>
     <div class="form-group">
         <label for="subtitle">Subtitle</label>
-        <input type="text" id="subtitle" class="form-control" ngModel name="subtitle">    
+        <input type="text" id="subtitle" class="form-control" formControlName="subtitle" name="subtitle">    
     </div>
     <div class="form-group">
         <label for="short-description">Short Description</label>
