@@ -6,7 +6,7 @@ import {
   ElementRef,
 } from '@angular/core';
 import { ItemService } from '@core/services/item.service';
-import { Poster } from '@core/models/poster';
+import { Item } from '@app/core/models/item';
 import { LoggerService } from '@app/core/services/logger.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ModalComponent } from '@shared/components/modal/modal.component';
@@ -19,7 +19,7 @@ import { getRandomInt } from '@shared/utils/helpers';
   styleUrls: ['./poster.component.scss'],
 })
 export class PosterComponent implements OnInit {
-  public loadedPosters: Poster[] = [];
+  public loadedPosters: Item[] = [];
   isFetching: boolean = false;
 
   @ViewChildren('posterElement') posterElement: QueryList<ElementRef>;
@@ -59,7 +59,7 @@ export class PosterComponent implements OnInit {
       this.loadedPosters = posters;
     });
   }
-  onCreateItems(itemData: Poster): void {
+  onCreateItems(itemData: Item): void {
     this.logger.info("PosterComponent: creating new item.");
     this.itemService.createItems(itemData);
   }
@@ -67,7 +67,7 @@ export class PosterComponent implements OnInit {
     this.logger.info("PosterComponent: filtering items.");
     return 
   }
-  openPoster(poster: Poster): void {
+  openPoster(poster: Item): void {
     this.logger.info('PosterComponent: open poster', poster._id);
     const dialogRef = this.dialog.open(ModalComponent, {
       maxHeight: '100vh',

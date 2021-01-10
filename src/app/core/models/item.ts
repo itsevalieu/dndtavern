@@ -1,4 +1,4 @@
-export interface Poster {
+export interface Item {
   _id?: number;
   title?: string;
   subtitle?: string;

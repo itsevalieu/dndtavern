@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { POSTERS } from '@core/mocks/mock-posters';
-import { Poster } from '@core/models/poster';
+import { Item } from '@app/core/models/item';
 import { environment } from '@environments/environment';
 
 @Injectable({
@@ -36,14 +36,15 @@ export class ItemService {
     .get(`${environment.api_url}/api/items`)
     .pipe(
       map(responseData => {
-        let itemsArray: Poster[] = [];
+        let itemsArray: Item[] = [];
         console.log("responseData", responseData["data"]);
         itemsArray = responseData["data"];
         return itemsArray;
     }));
     
   }
-  createItems(itemData) {
+  createItems(itemData: Item) {
+    console.log("Item Service, createItems, ", itemData);
     return this.http.post(`${environment.api_url}/api/items`, itemData);
   }
 }

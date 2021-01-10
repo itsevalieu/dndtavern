@@ -1,5 +1,5 @@
-import { Poster } from '@core/models/poster';
-export const POSTERS: Poster[] = [
+import { Item } from '@app/core/models/item';
+export const POSTERS: Item[] = [
   {
     _id: 1,
     title: "Cat's Cradle",
