@@ -20,6 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BarComponent } from './modules/pages/bar/bar.component';
 import { CreateItemComponent } from './modules/components/forms/create-item/create-item.component';
 import { LoginComponent } from './modules/components/forms/login/login.component';
+import { CreateUserComponent } from './modules/components/forms/create-user/create-user.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { LoginComponent } from './modules/components/forms/login/login.component
     NavComponent,
     CreateItemComponent,
     LoginComponent,
+    CreateUserComponent,
   ],
   imports: [
     BrowserModule,
