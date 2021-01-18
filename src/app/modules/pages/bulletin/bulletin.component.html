@@ -1,4 +1,15 @@
 <main class="bulletin">
   <app-header></app-header>
-  <app-poster></app-poster>
+  <div>
+    <button (click)="filterPostersByType('all')">All</button>
+    <button (click)="filterPostersByType('oneshot')">Oneshot</button>
+    <button (click)="filterPostersByType('item')">Item</button>
+    <button (click)="filterPostersByType('weapon')">Weapon</button>
+    <button (click)="filterPostersByType('npc')">NPC</button>
+    <button (click)="filterPostersByType('character')">Character</button>
+  </div>
+  <div class="posters">
+    <ng-container *ngIf="isFetching">Loading...</ng-container>
+    <app-poster *ngFor="let poster of posters" [poster]="poster" #posterContainers></app-poster>
+  </div>
 </main>

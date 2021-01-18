@@ -4,6 +4,7 @@ import {
   ViewChildren,
   QueryList,
   ElementRef,
+  Input,
 } from '@angular/core';
 import { ItemService } from '@core/services/item.service';
 import { Item } from '@app/core/models/item';
@@ -19,8 +20,7 @@ import { getRandomInt } from '@shared/utils/helpers';
   styleUrls: ['./poster.component.scss'],
 })
 export class PosterComponent implements OnInit {
-  public loadedPosters: Item[] = [];
-  isFetching: boolean = false;
+  @Input() poster: Item;
 
   @ViewChildren('posterElement') posterElement: QueryList<ElementRef>;
 
@@ -30,19 +30,12 @@ export class PosterComponent implements OnInit {
     public dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {
-    this.isFetching = true;
-    this.itemService.fetchItems().subscribe((posters) => {
-      this.isFetching = false;
-      this.loadedPosters = posters;
-    });
-  }
+  ngOnInit(): void {}
   ngAfterViewInit() {
-    console.log('ngAfterViewInit');
     // this.posterElement.first.nativeElement.drasggable = true;
 
     this.posterElement.forEach((poster) => {
-      console.log('PosterElement', poster);
+      // console.log('PosterElement', poster);
       poster.nativeElement.draggable = true;
       poster.nativeElement.style.top = `${getRandomInt(9)}px`;
       poster.nativeElement.style.bottom = `${getRandomInt(9)}px`;
@@ -50,22 +43,6 @@ export class PosterComponent implements OnInit {
       poster.nativeElement.style.left = `${getRandomInt(9)}px`;
       poster.nativeElement.style.transform = `rotate(${getRandomInt(5)}deg)`;
     });
-  }
-  onFetchItems(): void {
-    this.logger.info('PosterComponent: getting posters.');
-    this.isFetching = true;
-    this.itemService.fetchItems().subscribe((posters) => {
-      this.isFetching = false;
-      this.loadedPosters = posters;
-    });
-  }
-  onCreateItems(itemData: Item): void {
-    this.logger.info("PosterComponent: creating new item.");
-    this.itemService.createItems(itemData);
-  }
-  onFilterItems(filterBy: string) {
-    this.logger.info("PosterComponent: filtering items.");
-    return 
   }
   openPoster(poster: Item): void {
     this.logger.info('PosterComponent: open poster', poster._id);

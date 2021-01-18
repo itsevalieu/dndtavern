@@ -1,13 +1,11 @@
-<div class="posters">
-  <div
-    *ngFor="let poster of loadedPosters"
-    class="poster"
-    (click)="openPoster(poster)"
-    #posterElement
-  >
-    <h2>{{ poster.title }}</h2>
-    <p>DC: {{ poster.rating }}</p>
-    <p>{{ poster.subtitle }}</p>
-    <p>{{ poster.short_description }}</p>
-  </div>
+<div
+  class="poster"
+  (click)="openPoster(poster)"
+  #posterElement
+>
+  <h2>{{ poster.title }}</h2>
+  <p>Type: {{poster.type}}</p>
+  <p>DC: {{ poster.rating }}</p>
+  <p>{{ poster.subtitle }}</p>
+  <p>{{ poster.short_description }}</p>
 </div>
